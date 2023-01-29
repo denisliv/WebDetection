@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WebDetection</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/form_upload.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <form class="form-upload" method="post" enctype="multipart/form-data">
+        <img class="mb-4" src="/static/images_html/icon.png" alt="" width="82" height="82">
+        <h1 class="h3 mb-3 font-weight-normal">WebDetection</h1>
+        <input type="file" id="image" name="image" class="form-control" required autofocus>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Detect</button>
+        <br>
+        <br>
+        {% for cat, msg in get_flashed_messages(True) %}
+        <div class="flash {{ cat }}">{{ msg }}</div>
+        {% endfor %}
+    </form>
+    {% if image_loc %}
+        <figure class="text-center">
+          <img class="mb-4" src="/static/results/{{image_loc}}" alt="" width="{{width}}" height="{{height}}">
+          <figcaption class="right">
+            <h4 class="h3 mb-3 font-weight-normal">Number of objects</h4>
+            {% for label, value in labels.items() -%}
+              <ul><li>{{label}} - {{value}}</li></ul>
+            {% endfor -%}
+          </figcaption>
+        </figure>
+    {% endif %}
+    <p class="mt-5 mb-3 text-muted">&copy;2023</p>
+  </body>
+</html>
