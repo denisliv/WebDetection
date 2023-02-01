@@ -1,6 +1,6 @@
 from ultralytics import YOLO
 from collections import Counter
-from settings import CLASSES, ALLOWED_IMAGE_TYPES
+from configs import CLASSES, ALLOWED_IMAGE_TYPES
 
 class Model:
     def __init__(self, model='models/yolov8m.pt'):

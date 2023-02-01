@@ -27,9 +27,9 @@
           <img class="mb-4" src="/static/results/{{image_loc}}" alt="" width="{{width}}" height="{{height}}">
           <figcaption class="right">
             <h4 class="h3 mb-3 font-weight-normal">Number of objects</h4>
-            {% for label, value in labels.items() -%}
+            {%- for label, value in labels.items() -%}
               <ul><li>{{label}} - {{value}}</li></ul>
-            {% endfor -%}
+            {%- endfor -%}
           </figcaption>
         </figure>
     {% endif %}

@@ -2,7 +2,7 @@ import os
 import cv2
 from flask import Flask, render_template, request, flash
 from model import Model, label_count, allowed_image
-from settings import Config
+from configs import Config
 
 
 app = Flask(__name__)
@@ -19,7 +19,7 @@ def upload_predict():
         if image_file:
 
             if allowed_image(image_file.filename):
-                flash('Изображение загружено успешно', category='success')
+                flash('Image uploaded successfully', category='success')
                 image_file.save(os.path.join(app.config['UPLOAD_FOLDER'], image_file.filename))
                 img = cv2.imread(fr'static\files\{image_file.filename}')
                 results = model.predict(image_file.filename)
@@ -32,7 +32,7 @@ def upload_predict():
                                         labels=labels)
 
             else:
-                flash('Допустимые расширения: png, jpg, jpeg', category='error')
+                flash('Valid extensions: png, jpg, jpeg', category='error')
                 return render_template('index.html', image_loc=None)
 
     return render_template('index.html', image_loc=None)
