@@ -17,6 +17,22 @@ Simple app consisting of a form where you can upload an image, and see the infer
 
 Processed images are saved in the `static/results` directory with the original filename.
 
-Contacts:
+## Installation
+### Clone repository and install requirements
+
+```
+git clone git@github.com:denisliv/WebDetection.git
+cd WebDetection
+pip install -r requirements.txt
+```
+
+## Usage
+### Start the application
+
+```$ python3 server.py --port 5000```
+
+then visit [http://localhost:5000/](http://localhost:5000/) in your browser:
+
+## Contacts:
 
 [![LinkedIn](https://img.shields.io/static/v1.svg?label=connect&message=@denisliv&color=success&logo=linkedin&style=flat&logoColor=white&colorA=blue)](https://www.linkedin.com/in/denis-iv/)
